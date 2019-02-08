@@ -1,0 +1,10 @@
+version: '3'
+services:
+  text-processor:
+    image: cost-manager:latest
+    ports:
+      - "49160:3000"
+networks:
+  default:
+    external:
+      name: kafka-docker-compose_kafka
