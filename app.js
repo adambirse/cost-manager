@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/costs', costsRouter);
+app.use('/costs', costsRouter.router);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -54,7 +54,7 @@ var kafka = require('kafka-node'),
 
 
 consumer.on('message', function (message) {
-    console.log(message);
+    costsRouter.addData(message.value);
 });
 
 consumer.on('error', function (err) {

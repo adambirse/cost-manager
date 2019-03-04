@@ -1,9 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+var title = 'Costs';
+/* GET costs listing. */
 router.get('/', function(req, res, next) {
-  res.render('costs', { title: 'Costs' });
+  res.render('costs', { title: title, costs: costs });
 });
 
-module.exports = router;
+function addData(item) {
+  costs.push(JSON.parse(item));
+}
+
+module.exports = {
+  router:router,
+  addData:addData
+};
