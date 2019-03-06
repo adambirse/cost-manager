@@ -9,6 +9,7 @@ var costsRouter = require('./routes/costs');
 
 var app = express();
 
+const KAFKA_URL = process.env.KAFKA_URL;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -41,7 +42,7 @@ app.use(function (err, req, res, next) {
 
 var kafka = require('kafka-node'),
     Consumer = kafka.Consumer,
-    client = new kafka.KafkaClient({kafkaHost: 'kafka1:9092,kafka2:9092,kafka3:9092'}),
+    client = new kafka.KafkaClient({kafkaHost: KAFKA_URL}),
     consumer = new Consumer(
         client,
         [{topic: 'cost'}],
