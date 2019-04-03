@@ -10,6 +10,7 @@ var costsRouter = require('./routes/costs');
 var app = express();
 
 const KAFKA_URL = process.env.KAFKA_URL;
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -53,9 +54,8 @@ var kafka = require('kafka-node'),
         }
     );
 
-
 consumer.on('message', function (message) {
-    costsRouter.addData(message.value);
+    costsRouter.addData(JSON.parse(message.value));
 });
 
 consumer.on('error', function (err) {
