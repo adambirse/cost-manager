@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var costManager = require('../costs/costs-manager');
+const express = require('express');
+const router = express.Router();
+const costManager = require('../costs/costs-manager');
 
-var title = 'Costs';
+const title = 'Costs';
 
 /* GET costs listing. */
 router.get('/', function (req, res, next) {

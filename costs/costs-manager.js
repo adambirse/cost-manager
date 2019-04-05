@@ -1,4 +1,4 @@
-var dateUtilities = require('../utilities/date-utilities');
+const dateUtilities = require('../utilities/date-utilities');
 
 let costs = []; //time and cost
 let aggregatedCosts = [];
@@ -26,7 +26,7 @@ function updateAggregatedCosts(cost) {
 
     const timestamp = dateUtilities.extractDate(cost.time);
 
-    if (aggregatedCosts === undefined || aggregatedCosts.length == 0) {
+    if (aggregatedCosts === undefined || aggregatedCosts.length === 0) {
         aggregatedCosts.push( {
             date : new Date(timestamp.getFullYear(), timestamp.getMonth(), timestamp.getDate()),
             total : cost.cost

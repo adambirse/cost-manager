@@ -1,13 +1,13 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var costsRouter = require('./routes/costs');
+const indexRouter = require('./routes/index');
+const costsRouter = require('./routes/costs');
 
-var app = express();
+const app = express();
 
 const KAFKA_URL = process.env.KAFKA_URL;
 
@@ -41,7 +41,7 @@ app.use(function (err, req, res, next) {
 });
 
 
-var kafka = require('kafka-node'),
+const kafka = require('kafka-node'),
     Consumer = kafka.Consumer,
     client = new kafka.KafkaClient({kafkaHost: KAFKA_URL}),
     consumer = new Consumer(

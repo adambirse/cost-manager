@@ -1,6 +1,6 @@
-var chai = require('chai');
-var assert = chai.assert;
-var dateUtilities = require('../utilities/date-utilities');
+const chai = require('chai');
+const assert = chai.assert;
+const dateUtilities = require('../utilities/date-utilities');
 
 describe('Date Utilities', function () {
 

@@ -1,6 +1,6 @@
-var chai = require('chai');
-var expect = chai.expect;
-var costManager = require('../costs/costs-manager');
+const chai = require('chai');
+const expect = chai.expect;
+const costManager = require('../costs/costs-manager');
 
 describe('Costs Manager', function() {
 
