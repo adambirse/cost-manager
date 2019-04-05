@@ -3,7 +3,7 @@ extends layout
 block content
     h1= title
     h2 Costs
-    table(border = '1')
+    table.table.table-striped
         thead
             tr
                 th Time
@@ -14,7 +14,7 @@ block content
                     td= new Date(cost.time)
                     td= cost.cost
     h2 Aggregated Costs
-    table(border = '1')
+    table.table.table-striped
         thead
             tr
                 th Date
