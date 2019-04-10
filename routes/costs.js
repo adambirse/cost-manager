@@ -6,7 +6,7 @@ const title = 'Costs';
 
 /* GET costs listing. */
 router.get('/', function (req, res, next) {
-    res.render('costs', {title: title, costs: costManager.getCosts(), aggregatedCosts: costManager.getAggregatedCosts()});
+    res.render('costs', {title: title, aggregatedCosts: costManager.getAggregatedCosts()});
 });
 
 function addData(item) {

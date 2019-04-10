@@ -24,7 +24,7 @@ function clearCosts() {
 
 function updateAggregatedCosts(cost) {
 
-    const timestamp = dateUtilities.extractDate(cost.time);
+    const timestamp = dateUtilities.extractDate(cost.date);
 
     if (aggregatedCosts === undefined || aggregatedCosts.length === 0) {
         aggregatedCosts.push( {

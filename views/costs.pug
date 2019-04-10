@@ -2,17 +2,6 @@ extends layout
 
 block content
     h1= title
-    h2 Costs
-    table.table.table-striped
-        thead
-            tr
-                th Time
-                th Cost
-        tbody
-            each cost in costs
-                tr
-                    td= new Date(cost.time)
-                    td= cost.cost
     h2 Aggregated Costs
     table.table.table-striped
         thead
@@ -22,6 +11,6 @@ block content
         tbody
             each cost in aggregatedCosts
                 tr
-                    td= new Date(cost.date)
+                    td= cost.date.toLocaleDateString()
                     td= cost.total
 
