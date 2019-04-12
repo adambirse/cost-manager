@@ -126,4 +126,34 @@ describe('Costs Manager', function() {
 
         expect(costManager.getAggregatedCosts()).to.eql(expected);
     });
+    it('Add Aggregated Cost - Multiple Entries - out of order', function() {
+
+        const item1 = { date: '2019-04-04', cost: 100 };
+        const item2 = { date: '2019-04-04', cost: 200 };
+        const item3 = { date: '2019-04-04', cost: 300 };
+
+        const item4 = { date: '2019-04-05', cost: 200 };
+        const item5 = { date: '2019-04-05', cost: 300 };
+
+        const item6 = { date: '2019-04-06', cost: 123 };
+
+
+        const expected = [
+            {date: new Date(2019, 3, 4), total: 600},
+            {date: new Date(2019, 3, 5), total: 500},
+            {date: new Date(2019, 3, 6), total: 123}
+
+        ];
+
+        costManager.addCost(item4);
+        costManager.addCost(item5);
+
+        costManager.addCost(item1);
+        costManager.addCost(item2);
+        costManager.addCost(item3);
+
+        costManager.addCost(item6);
+
+        expect(costManager.getAggregatedCosts()).to.eql(expected);
+    });
 });
