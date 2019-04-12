@@ -51,6 +51,10 @@ function updateAggregatedCosts(cost) {
             });
         }
     }
+
+    aggregatedCosts = aggregatedCosts.sort(function(a, b){
+        return a.date - b.date;
+    });
 }
 
 module.exports = {
